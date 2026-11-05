@@ -1,0 +1,435 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Sudharsan S Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Familjen+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dark motorsport-style single page. Big condensed hero beside a datasheet card, then ruled sections with cards for projects. */
+:root {
+  --bg: #0e0f11;
+  --surface: #17191c;
+  --surface-2: #1e2125;
+  --line: #2c3035;
+  --fg: #f2f0eb;
+  --muted: #a3a39c;
+  --accent: #ff5a1f;
+  --accent-ink: #14100d;
+  --ph: #ffb48f;
+  --ph-bg: rgba(255, 90, 31, 0.12);
+  --f-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --f-body: "Familjen Grotesk", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: 1180px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--f-display); text-transform: uppercase; line-height: 0.95; margin: 0; text-wrap: balance; letter-spacing: 0.01em; }
+p { margin: 0; }
+
+.ph { font-family: var(--f-mono); font-size: 0.82em; color: var(--ph); background: var(--ph-bg); border: 1px dashed rgba(255, 90, 31, 0.5); border-radius: 3px; padding: 0 0.35em; white-space: normal; }
+
+/* nav */
+nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; }
+.brand { font-family: var(--f-display); font-weight: 900; font-size: 1.5rem; text-transform: uppercase; text-decoration: none; letter-spacing: 0.02em; }
+.brand b { color: var(--accent); }
+.links { display: flex; gap: 1.4rem; flex-wrap: wrap; justify-content: flex-end; font-family: var(--f-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.links a { text-decoration: none; color: var(--muted); padding: 0.25rem 0; border-bottom: 2px solid transparent; }
+.links a:hover, .links a.on { color: var(--fg); border-bottom-color: var(--accent); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 3rem; align-items: center; padding-block: 4.5rem 5rem; }
+.hero > * { min-width: 0; }
+.tag { font-family: var(--f-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); display: flex; align-items: center; gap: 0.6rem; }
+.tag::before { content: ""; width: 2.2rem; height: 2px; background: var(--accent); }
+.hero h1 { font-weight: 900; font-size: clamp(4.2rem, 13vw, 9.5rem); margin: 1rem 0 1.4rem; }
+.hero h1 span { color: var(--accent); }
+.lede { font-size: 1.2rem; max-width: 34rem; color: var(--fg); }
+.lede em { font-style: normal; color: var(--muted); }
+.cta { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--f-mono); font-size: 0.82rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; padding: 0.85rem 1.3rem; border-radius: 999px; border: 1.5px solid var(--fg); transition: transform 0.15s, background 0.15s, color 0.15s; cursor: pointer; background: transparent; color: var(--fg); }
+.btn:hover { transform: translateY(-2px); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn.primary:hover { background: var(--fg); border-color: var(--fg); }
+
+.board { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.6rem; overflow: hidden; }
+.board svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.55; pointer-events: none; }
+.board > *:not(svg) { position: relative; }
+.board .id { font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.board h2 { font-size: 2.4rem; margin: 1.4rem 0 0.2rem; font-weight: 800; }
+.board .sub { color: var(--muted); font-size: 0.95rem; }
+.spec { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.spec li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+.spec li > * { min-width: 0; }
+.spec span:first-child { font-family: var(--f-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); padding-top: 0.2rem; }
+@keyframes flow { to { stroke-dashoffset: -60; } }
+.trace-live { stroke-dasharray: 6 54; animation: flow 3.2s linear infinite; }
+
+/* sections */
+section { padding-block: 4.5rem; border-top: 1px solid var(--line); }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.4rem; }
+.sec-head h2 { font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 900; }
+.sec-head p { font-family: var(--f-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.about > * { min-width: 0; }
+.about p + p { margin-top: 1rem; }
+.about .big { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.02; }
+.about .big em { font-style: normal; color: var(--accent); }
+.interests { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.4rem; }
+.chip { font-family: var(--f-mono); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.4rem 0.8rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+
+.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.skills > * { min-width: 0; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem; }
+.panel h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.9rem; }
+.panel ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; color: var(--muted); font-size: 0.95rem; }
+.panel .note { margin-top: 0.9rem; font-size: 0.85rem; color: var(--muted); }
+
+.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+.projects > * { min-width: 0; }
+.proj { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1.6rem; display: flex; flex-direction: column; gap: 1rem; transition: transform 0.2s, border-color 0.2s; }
+.proj:hover { transform: translateY(-4px); border-color: var(--accent); }
+.proj .kicker { font-family: var(--f-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+.proj h3 { font-size: 2rem; font-weight: 800; }
+.proj p { color: var(--muted); font-size: 0.97rem; }
+.proj dl { margin: 0; display: grid; gap: 0.5rem; font-size: 0.92rem; }
+.proj dt { font-family: var(--f-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.proj dd { margin: 0; }
+.proj .foot { margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--line); font-family: var(--f-mono); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.proj.win { border-color: rgba(255, 90, 31, 0.55); }
+.badge { align-self: flex-start; font-family: var(--f-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; background: var(--accent); color: var(--accent-ink); font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 4px; }
+
+.timeline { display: grid; gap: 0; border-left: 2px solid var(--line); margin-left: 0.4rem; }
+.role { position: relative; padding: 0 0 2.2rem 2rem; }
+.role:last-child { padding-bottom: 0; }
+.role::before { content: ""; position: absolute; left: -0.55rem; top: 0.55rem; width: 0.9rem; height: 0.9rem; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+.role .when { font-family: var(--f-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.role h3 { font-size: 2rem; font-weight: 800; margin: 0.3rem 0 0.1rem; }
+.role .org { color: var(--accent); font-weight: 500; }
+.role p { color: var(--muted); margin-top: 0.6rem; max-width: 44rem; font-size: 0.97rem; }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.two > * { min-width: 0; }
+.rows { list-style: none; margin: 0; padding: 0; }
+.rows li { padding: 0.9rem 0; border-bottom: 1px solid var(--line); display: grid; gap: 0.2rem; }
+.rows li:first-child { padding-top: 0; }
+.rows li:last-child { border-bottom: 0; padding-bottom: 0; }
+.rows strong { font-weight: 600; }
+.rows span { color: var(--muted); font-size: 0.93rem; }
+
+.contact { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; }
+.contact > * { min-width: 0; }
+.contact .big { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 0.95; }
+.contact .big span { color: var(--accent); }
+.reach { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 0.2rem; }
+.reach li { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--line); font-size: 0.96rem; }
+.reach li > * { min-width: 0; overflow-wrap: anywhere; }
+.reach span:first-child { font-family: var(--f-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); padding-top: 0.2rem; }
+form.card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.8rem; display: grid; gap: 1.1rem; }
+form.card h3 { font-size: 1.9rem; font-weight: 800; }
+label { display: grid; gap: 0.4rem; font-family: var(--f-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+input, textarea { font: inherit; font-family: var(--f-body); font-size: 1rem; text-transform: none; letter-spacing: 0; color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 10px; padding: 0.8rem 0.9rem; width: 100%; }
+textarea { min-height: 7.5rem; resize: vertical; }
+input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+.err { color: #ff8a7a; font-size: 0.82rem; text-transform: none; letter-spacing: 0; font-family: var(--f-body); min-height: 1.1em; }
+#status { font-size: 0.92rem; color: var(--muted); min-height: 1.4em; }
+#status.ok { color: var(--fg); }
+
+footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-family: var(--f-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.checklist { background: var(--surface); border: 1px dashed rgba(255, 90, 31, 0.5); border-radius: 12px; padding: 1.2rem 1.4rem; margin-top: 2.5rem; font-size: 0.92rem; color: var(--muted); }
+.checklist strong { color: var(--ph); font-family: var(--f-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; }
+
+@media (max-width: 880px) {
+  .hero, .about, .contact, .two { grid-template-columns: 1fr; gap: 2rem; }
+  .skills, .projects { grid-template-columns: 1fr; }
+  .hero { padding-block: 3rem 3.5rem; }
+  section { padding-block: 3.2rem; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .links { gap: 0.9rem; font-size: 0.7rem; }
+  nav .wrap { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .links { justify-content: flex-start; }
+  .spec li, .reach li { grid-template-columns: 1fr; gap: 0.1rem; }
+  .btn { padding: 0.8rem 1.1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .trace-live { animation: none; }
+  .btn, .proj { transition: none; }
+}
+</style>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Sudharsan<b>.</b>S</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#achievements">Awards</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <header class="hero">
+    <div>
+      <p class="tag">ECE student · Chennai</p>
+      <h1>Sudharsan <span>S</span></h1>
+      <p class="lede">Second-year Electronics and Communication Engineering student building embedded, IoT and hardware projects. <em>Looking for an internship in electronics, embedded systems or IoT.</em></p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="#contact">Contact me</a>
+        <a class="btn" href="#" aria-disabled="true">Resume <span class="ph">add PDF link</span></a>
+      </div>
+    </div>
+
+    <aside class="board" aria-label="Profile summary">
+      <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g fill="none" stroke="var(--line)" stroke-width="2">
+          <path d="M0 80 H120 L150 110 H400"/>
+          <path d="M0 200 H80 L110 230 H260 L290 200 H400"/>
+          <path d="M0 330 H180 L210 360 H400"/>
+          <path d="M0 450 H100 L130 420 H320 L350 450 H400"/>
+        </g>
+        <g fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round">
+          <path class="trace-live" d="M0 80 H120 L150 110 H400"/>
+          <path class="trace-live" style="animation-delay:-1s" d="M0 200 H80 L110 230 H260 L290 200 H400"/>
+          <path class="trace-live" style="animation-delay:-2s" d="M0 330 H180 L210 360 H400"/>
+          <path class="trace-live" style="animation-delay:-.5s" d="M0 450 H100 L130 420 H320 L350 450 H400"/>
+        </g>
+        <g fill="var(--surface)" stroke="var(--line)" stroke-width="2">
+          <circle cx="150" cy="110" r="5"/><circle cx="290" cy="200" r="5"/><circle cx="210" cy="360" r="5"/><circle cx="130" cy="420" r="5"/>
+        </g>
+      </svg>
+      <div class="id"><span>Profile</span><span>B.E. ECE · Year 2</span></div>
+      <h2>Sudharsan S</h2>
+      <p class="sub">Aspiring electronics &amp; embedded-systems engineer</p>
+      <ul class="spec">
+        <li><span>College</span><span>Dhaanish Chennai College of Engineering</span></li>
+        <li><span>Focus</span><span>Core electronics, semiconductor devices, sensor interfacing, IoT</span></li>
+        <li><span>Also</span><span>Software development, full-stack internship</span></li>
+        <li><span>Won</span><span>1st prize, 24-hour hackathon</span></li>
+        <li><span>Based in</span><span>Chennai, Tamil Nadu</span></li>
+      </ul>
+    </aside>
+  </header>
+
+  <section id="about">
+    <div class="sec-head"><h2>About</h2><p>Who I am</p></div>
+    <div class="about">
+      <p class="big">I build things that <em>sense</em>, <em>move</em> and <em>report back</em>.</p>
+      <div>
+        <p>I am a second-year B.E. Electronics and Communication Engineering student at Dhaanish Chennai College of Engineering. My projects cover agriculture, weather monitoring, floor cleaning and solar EV charging.</p>
+        <p>Alongside hardware, I have worked on software development, including a full-stack development internship, and I keep learning through courses such as NPTEL. I am looking for an internship where I can work on real electronics, embedded or IoT problems.</p>
+        <div class="interests">
+          <span class="chip">Core electronics</span><span class="chip">Semiconductor devices</span><span class="chip">Sensor interfacing</span><span class="chip">IoT</span><span class="chip">Hardware projects</span><span class="chip">Software development</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><h2>Skills</h2><p>Only what I have used</p></div>
+    <div class="skills">
+      <div class="panel">
+        <h3>Electronics &amp; Embedded</h3>
+        <ul><li><span class="ph">add boards / microcontrollers used</span></li><li><span class="ph">add sensors and modules used</span></li><li><span class="ph">add circuit or PCB tools used</span></li></ul>
+      </div>
+      <div class="panel">
+        <h3>Programming &amp; Software</h3>
+        <ul><li><span class="ph">add programming languages used</span></li><li><span class="ph">add web / full-stack technologies used</span></li></ul>
+      </div>
+      <div class="panel">
+        <h3>Tools</h3>
+        <ul><li><span class="ph">add software and tools used</span></li><li><span class="ph">add version control, simulators, IDEs</span></li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head"><h2>Projects</h2><p>Four builds</p></div>
+    <div class="projects">
+      <article class="proj win">
+        <span class="badge">1st prize · 24-hour hackathon</span>
+        <p class="kicker">Agriculture · Robotics</p>
+        <h3>Smart Multifunctional Agricultural Bot</h3>
+        <p>A multifunctional bot designed to support farmers, built during a 24-hour hackathon where it won first prize.</p>
+        <dl>
+          <div><dt>Components</dt><dd><span class="ph">add components and sensors</span></dd></div>
+          <div><dt>My contribution</dt><dd><span class="ph">add what you built</span></dd></div>
+          <div><dt>Result</dt><dd><span class="ph">add outcome</span></dd></div>
+        </dl>
+        <p class="foot"><span class="ph">add GitHub / demo link</span></p>
+      </article>
+
+      <article class="proj">
+        <p class="kicker">IoT · Sensing</p>
+        <h3>Weather Monitoring System</h3>
+        <p>A system for monitoring weather conditions with sensors.</p>
+        <dl>
+          <div><dt>Components</dt><dd><span class="ph">add sensors and board</span></dd></div>
+          <div><dt>My contribution</dt><dd><span class="ph">add what you built</span></dd></div>
+          <div><dt>Result</dt><dd><span class="ph">add outcome</span></dd></div>
+        </dl>
+        <p class="foot"><span class="ph">add GitHub / demo link</span></p>
+      </article>
+
+      <article class="proj">
+        <p class="kicker">Robotics · Automation</p>
+        <h3>Automatic Floor-Cleaning Robot</h3>
+        <p>A robot that cleans floors automatically.</p>
+        <dl>
+          <div><dt>Components</dt><dd><span class="ph">add components and sensors</span></dd></div>
+          <div><dt>My contribution</dt><dd><span class="ph">add what you built</span></dd></div>
+          <div><dt>Result</dt><dd><span class="ph">add outcome</span></dd></div>
+        </dl>
+        <p class="foot"><span class="ph">add GitHub / demo link</span></p>
+      </article>
+
+      <article class="proj">
+        <p class="kicker">Solar · EV</p>
+        <h3>Solar EV-Charging Concept</h3>
+        <p>A concept for charging electric vehicles from solar power.</p>
+        <dl>
+          <div><dt>Approach</dt><dd><span class="ph">add design details</span></dd></div>
+          <div><dt>My contribution</dt><dd><span class="ph">add what you did</span></dd></div>
+          <div><dt>Status</dt><dd><span class="ph">concept / prototype / tested</span></dd></div>
+        </dl>
+        <p class="foot"><span class="ph">add link or report</span></p>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><h2>Experience</h2><p>Leadership &amp; internships</p></div>
+    <div class="timeline">
+      <div class="role">
+        <p class="when"><span class="ph">add dates</span> · College startup</p>
+        <h3>Chief Technology Officer</h3>
+        <p class="org">Visronix Technologies</p>
+        <p><span class="ph">add responsibilities and outcomes</span></p>
+      </div>
+      <div class="role">
+        <p class="when"><span class="ph">add dates</span> · Online internship</p>
+        <h3>Full-Stack Development Intern</h3>
+        <p class="org"><span class="ph">add organization</span></p>
+        <p><span class="ph">add technologies and work completed</span></p>
+      </div>
+      <div class="role">
+        <p class="when"><span class="ph">add dates</span> · First year</p>
+        <h3>Intern</h3>
+        <p class="org">Approtech</p>
+        <p><span class="ph">add tasks completed</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="sec-head"><h2>Awards &amp; Learning</h2><p>Beyond the lab</p></div>
+    <div class="two">
+      <div class="panel">
+        <h3>Awards &amp; Activities</h3>
+        <ul class="rows">
+          <li><strong>First prize, 24-hour hackathon</strong><span>For the multifunctional agricultural bot built to support farmers.</span></li>
+          <li><strong>State-level Kho-Kho</strong><span>Participated at state level.</span></li>
+          <li><strong>English typewriting</strong><span>Completed. <span class="ph">add level / certificate</span></span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Courses</h3>
+        <ul class="rows">
+          <li><strong>NPTEL: semiconductor devices and sensors</strong><span><span class="ph">add exact course title, status, certificate yes/no</span></span></li>
+        </ul>
+        <p class="note">Technical events and seminars: <span class="ph">add if any</span></p>
+      </div>
+    </div>
+    <div class="checklist"><strong>Before publishing</strong><br>Every orange dashed box is a placeholder. Replace each one with a confirmed fact, or delete the line. Do not add anything you have not done.</div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div>
+        <h2 class="big">Let's talk <span>hardware.</span></h2>
+        <ul class="reach">
+          <li><span>Email</span><span class="ph">add professional email</span></li>
+          <li><span>Phone</span><span class="ph">add phone</span></li>
+          <li><span>LinkedIn</span><span class="ph">add LinkedIn URL</span></li>
+          <li><span>GitHub</span><span class="ph">add GitHub URL</span></li>
+          <li><span>Location</span><span>Chennai, Tamil Nadu</span></li>
+        </ul>
+      </div>
+      <form class="card" id="cf" novalidate>
+        <h3>Send a message</h3>
+        <label for="cn">Name<input id="cn" name="name" autocomplete="name" required><span class="err" id="e-cn"></span></label>
+        <label for="ce">Email<input id="ce" name="email" type="email" autocomplete="email" required><span class="err" id="e-ce"></span></label>
+        <label for="cm">Message<textarea id="cm" name="message" required></textarea><span class="err" id="e-cm"></span></label>
+        <button class="btn primary" type="submit">Send message</button>
+        <p id="status" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <span>Sudharsan S · B.E. ECE</span>
+    <span>Dhaanish Chennai College of Engineering</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var form = document.getElementById("cf");
+  var status = document.getElementById("status");
+  function check(id, msg, test) {
+    var el = document.getElementById(id);
+    var err = document.getElementById("e-" + id);
+    var ok = test(el.value.trim());
+    err.textContent = ok ? "" : msg;
+    return ok;
+  }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var a = check("cn", "Enter your name.", function (v) { return v.length > 0; });
+    var b = check("ce", "Enter a valid email address.", function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); });
+    var c = check("cm", "Write a short message.", function (v) { return v.length > 0; });
+    status.className = "";
+    if (a && b && c) {
+      status.className = "ok";
+      status.textContent = "Form checked. This preview does not send messages yet. Use the email or phone listed beside it.";
+    } else {
+      status.textContent = "Fix the highlighted fields.";
+    }
+  });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll(".links a"));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  function spy() {
+    var y = window.scrollY + 120, cur = -1;
+    secs.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
+    links.forEach(function (a, i) { a.classList.toggle("on", i === cur); });
+  }
+  window.addEventListener("scroll", spy, { passive: true });
+  spy();
+})();
+</script>
+
+</body></html>
